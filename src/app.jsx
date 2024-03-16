@@ -1,12 +1,12 @@
+import { onMount } from "solid-js";
 import "./app.css";
-import { render } from "solid-js/web";
 
-function App() {
+export function App() {
+  onMount(async () => {
+    (await import("./test")).default();
+    navigator.notification.alert("message", function(){}, "test", "ok");
+  })
   return (
     <div>Test</div>
   );
 }
-
-document.addEventListener("deviceready", function() {
-  render(() => <App />, document.getElementById("app"));
-});
