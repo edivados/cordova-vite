@@ -1,8 +1,13 @@
 {
   "scripts": {
     "vite:dev": "vite dev",
+    "vite:build": "vite build",
     "run:android": "cordova run android",
-    "dev": "npm-run-all --parallel vite:dev run:android"
+    "run:ios": "cordova run ios",
+    "dev:android": "cross-env CORDOVA_PLATFORM=android npm-run-all --parallel vite:dev run:android",
+    "dev:ios": "cross-env CORDOVA_PLATFORM=ios npm-run-all --parallel vite:dev run:ios",
+    "build:android": "npm-run-all vite:build build:android",
+    "build:ios": "npm-run-all vite:build build:ios"
   },
   "dependencies": {
     "cordova": "^12.0.0",
@@ -12,9 +17,10 @@
   },
   "devDependencies": {
     "cordova-android": "^12.0.1",
+    "cordova-ios": "^7.0.1",
     "cordova-plugin-dialogs": "^2.0.2",
+    "cross-env": "^7.0.3",
     "npm-run-all": "^4.1.5",
-    "rimraf": "^5.0.5",
     "vite": "^5.1.6"
   },
   "cordova": {
