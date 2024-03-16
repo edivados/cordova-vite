@@ -1,0 +1,19 @@
+{
+  "scripts": {
+    "dev": "cordova run android && vite dev"
+  },
+  "dependencies": {
+    "cordova": "^12.0.0",
+    "solid-js": "^1.8.15",
+    "vite-plugin-solid": "^2.10.1"
+  },
+  "devDependencies": {
+    "cordova-android": "^12.0.1",
+    "vite": "^5.1.6"
+  },
+  "cordova": {
+    "platforms": [
+      "android"
+    ]
+  }
+}
