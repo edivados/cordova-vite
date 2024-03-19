@@ -1,16 +1,14 @@
 const fs = require("node:fs");
 
 module.exports = function(ctx) {
-  if(process.argv.filter(arg => arg === "run")) {
-    const platform = process.argv.filter(arg => ["android", "ios"].includes(arg))?.[0];
-    if (!platform) {
-      console.error("Missing CORDOVA_PLATFORM env variable. Can be one of [android, ios].");
-      process.exit(1);
+  if(process.argv.find(arg => arg === "run")) {
+    const platform = ctx.opts.platforms.length === 1 && ctx.opts.platforms.find(platform => platform === "android" || platform === "ios");
+    if (platform) {
+      const config = fs.readFileSync("config.xml", { encoding: "utf-8" });
+      fs.writeFileSync("config.xml", 
+        config.replace("index.html", `http://${platform === "android" ? "10.0.2.2" : "127.0.0.1"}:3000/`),
+        { encoding: "utf-8" }
+      );
     }
-    const config = fs.readFileSync("config.xml", { encoding: "utf-8" });
-    fs.writeFileSync("config.xml", 
-      config.replace("index.html", `http://${platform === "android" ? "10.0.2.2" : "127.0.0.1"}:3000/`),
-      { encoding: "utf-8" }
-    );
   }
 };

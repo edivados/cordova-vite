@@ -19,5 +19,6 @@
         <preference name="android-compileSdkVersion" value="34" />
         <preference name="android-targetSdkVersion" value="34" />
         <preference name="android-buildToolsVersion" value="34.0.0" />
+        <preference name="AndroidPostSplashScreenTheme" value="@style/Theme.AppCompat.DayNight.NoActionBar" />
     </platform>
 </widget>
