@@ -3,7 +3,7 @@ import solid from "vite-plugin-solid";
 
 function cordova() {
   const SUPPORTED_PLATFORMS = {
-    android: { mame: "android", hmr: { host: "10.0.2.2" } },
+    android: { name: "android", hmr: { host: "10.0.2.2" } },
     ios: { name: "ios", hmr: { host: "127.0.0.1" } }
   };
   let platform;
@@ -21,7 +21,7 @@ function cordova() {
         },
         server: {
           host: "127.0.0.1",
-          port: 3000,
+          port: process.env.CORDOVA_PORT || 3000,
           hmr: {
             host: platform?.hmr?.host
           }
