@@ -3,9 +3,9 @@ import solid from "vite-plugin-solid";
 
 const SUPPORTED_PLATFORMS = ["android", "ios"]
 
-export default defineConfig(() => {
+export default defineConfig((config) => {
   const platform = process.env.CORDOVA_PLATFORM?.toLowerCase?.();
-  if (!SUPPORTED_PLATFORMS.includes(platform)) {
+  if (config.command === "server" && !SUPPORTED_PLATFORMS.includes(platform)) {
     console.error(`Missing CORDOVA_PLATFORM env variable. Can be one of [${SUPPORTED_PLATFORMS.join(", ")}]`);
     process.exit(1);
   }
@@ -35,13 +35,27 @@ export default defineConfig(() => {
           });
         },
         transformIndexHtml: {
-          handler() {
-            return [
+          handler(_html, ctx) {
+            const tags = [
               { tag: "script", injectTo: "head",  attrs: { src: "/cordova.js" } }
             ];
+            if (ctx.server) {
+              tags.push({ 
+                tag: "script",
+                injectTo: "head", 
+                children: `document.addEventListener("deviceready", function() {
+                  const match = /Chrome\\/([\\d+\\.]+)\\s/.exec(window.navigator.userAgent);
+                  if (match.length === 2 && match[1].split(".")[0] < 61) {
+                    alert("Webview version 61 or newer required for development. Your version: " + match[1]);
+                    navigator.app.exitApp();
+                  }
+                })`
+              });
+            }
+            return tags;
           }
         }
-      },
+      }
     ]
   }
 });
