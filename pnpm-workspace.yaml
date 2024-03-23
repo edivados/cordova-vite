@@ -1,0 +1,4 @@
+packages:
+  - 'cordova-plugin-vite/**'
+  - 'example/**'
+  - '!example/plugins/**'

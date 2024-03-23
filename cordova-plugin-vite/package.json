@@ -1,0 +1,29 @@
+{
+  "name": "cordova-plugin-vite",
+  "version": "0.0.1",
+  "description": "Cordova Vite Plugin",
+  "author": {
+    "name": "edivados"
+  },
+  "cordova": {
+    "id": "cordova-plugin-vite",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "repository": "github:edivados/cordova-plugin-vite",
+  "bugs": "https://github.com/edivados/cordova-plugin-vite/issues",
+  "keywords": [
+    "cordova",
+    "vite",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "exports": {
+    ".": "./vite.js"
+  },
+  "peerDependencies": {
+    "vite": "^4 || ^5"
+  }
+}

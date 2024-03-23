@@ -1,7 +1,4 @@
-import { defineConfig } from 'vite';
-import solid from "vite-plugin-solid";
-
-function cordova() {
+module.exports = function() {
   const SUPPORTED_PLATFORMS = {
     android: { name: "android", hmr: { host: "10.0.2.2" } },
     ios: { name: "ios", hmr: { host: "127.0.0.1" } }
@@ -61,10 +58,3 @@ function cordova() {
     }
   }
 }
-
-export default defineConfig({
-  plugins: [
-    cordova(),
-    solid()
-  ]
-});
