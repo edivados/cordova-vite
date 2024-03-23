@@ -10,7 +10,9 @@
     "dev:android": "cross-env CORDOVA_PLATFORM=android npm-run-all --parallel vite:dev cordova:run:android",
     "dev:ios": "cross-env CORDOVA_PLATFORM=ios npm-run-all --parallel vite:dev cordova:run:ios",
     "build:android": "npm-run-all vite:build cordova:build:android",
-    "build:ios": "npm-run-all vite:build cordova:build:ios"
+    "build:ios": "npm-run-all vite:build cordova:build:ios",
+    "preview:android": "npm-run-all vite:build cordova:run:android",
+    "preview:ios": "npm-run-all vite:build cordova:run:ios"
   },
   "dependencies": {
     "cordova": "^12.0.0",
