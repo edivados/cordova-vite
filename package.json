@@ -1,6 +1,5 @@
 {
-  "name": "cordova-plugin-vite-monorepo",
-  "description": "Cordova Vite Plugin",
+  "name": "vite-plugin-cordova-monorepo",
   "private": true,
   "scripts": {
     "prepare:android": "npm run --workspace=example prepare:android",
@@ -12,5 +11,5 @@
     "preview:android": "npm run --workspace=example preview:android",
     "preview:ios": "npm run --workspace=example preview:ios"
   },
-  "workspaces": ["cordova-plugin-vite", "example"]
+  "workspaces": ["vite-plugin-cordova", "example"]
 }

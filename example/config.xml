@@ -5,7 +5,7 @@
     <author email="dev@cordova.apache.org" href="https://cordova.apache.org">
         Apache Cordova Team
     </author>
-    <content src="index.html" />
+    <content src="http://10.0.2.2:3000" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
 
