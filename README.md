@@ -1,4 +1,4 @@
-# Cordova Plugin Vite
+# Vite Plugin Cordova
 
 ## Run example
 
