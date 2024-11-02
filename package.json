@@ -3,13 +3,14 @@
   "description": "Cordova Vite Plugin",
   "private": true,
   "scripts": {
-    "prepare:android": "pnpm -F example prepare:android",
-    "prepare:ios": "pnpm -F example prepare:ios",
-    "dev:android": "pnpm -F example dev:android",
-    "dev:ios": "pnpm -F example dev:ios",
-    "build:android": "pnpm -F example build:android",
-    "build:ios": "pnpm -F example build:ios",
-    "preview:android": "pnpm -F example preview:android",
-    "preview:ios": "pnpm -F example preview:ios"
-  }
+    "prepare:android": "npm run --workspace=example prepare:android",
+    "prepare:ios": "npm run --workspace=example prepare:ios",
+    "dev:android": "npm run --workspace=example dev:android",
+    "dev:ios": "npm run --workspace=example dev:ios",
+    "build:android": "npm run --workspace=example build:android",
+    "build:ios": "npm run --workspace=example build:ios",
+    "preview:android": "npm run --workspace=example preview:android",
+    "preview:ios": "npm run --workspace=example preview:ios"
+  },
+  "workspaces": ["cordova-plugin-vite", "example"]
 }
