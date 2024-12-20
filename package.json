@@ -1,15 +1,43 @@
 {
-  "name": "vite-plugin-cordova-monorepo",
-  "private": true,
+  "name": "cordova-vite",
   "scripts": {
-    "prepare:android": "npm run --workspace=example prepare:android",
-    "prepare:ios": "npm run --workspace=example prepare:ios",
-    "dev:android": "npm run --workspace=example dev:android",
-    "dev:ios": "npm run --workspace=example dev:ios",
-    "build:android": "npm run --workspace=example build:android",
-    "build:ios": "npm run --workspace=example build:ios",
-    "preview:android": "npm run --workspace=example preview:android",
-    "preview:ios": "npm run --workspace=example preview:ios"
+    "vite:dev": "vite dev",
+    "vite:build": "vite build",
+    "cordova:run:android": "cordova run android",
+    "cordova:run:ios": "cordova run ios",
+    "cordova:build:android": "cordova build android",
+    "cordova:build:ios": "cordova build ios",
+    "prepare:android": "cordova prepare android",
+    "prepare:ios": "cordova prepare ios",
+    "dev:android": "npm-run-all --parallel vite:dev --mode android cordova:run:android",
+    "dev:ios": "npm-run-all --parallel vite:dev --mode ios cordova:run:ios",
+    "build:android": "npm-run-all vite:build cordova:build:android",
+    "build:ios": "npm-run-all vite:build cordova:build:ios",
+    "preview:android": "npm-run-all vite:build cordova:run:android",
+    "preview:ios": "npm-run-all vite:build cordova:run:ios"
   },
-  "workspaces": ["vite-plugin-cordova", "example"]
+  "dependencies": {
+    "cordova": "^12.0.0",
+    "solid-js": "^1.8.15"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.18",
+    "cordova-android": "^13.0.0",
+    "cordova-ios": "^7.0.1",
+    "cordova-plugin-dialogs": "^2.0.2",
+    "cordova-plugin-vite": "file:../vite-plugin-cordova",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.36",
+    "tailwindcss": "^3.4.1",
+    "vite": "^5.1.6",
+    "vite-plugin-solid": "^2.10.2"
+  },
+  "cordova": {
+    "platforms": [
+      "android"
+    ],
+    "plugins": {
+      "cordova-plugin-dialogs": {}
+    }
+  }
 }
