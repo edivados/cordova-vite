@@ -17,9 +17,9 @@ npm install
 ### Prepare the app
 
 ```sh
-npm run dev:android
+npm run prepare:android
 or
-npm run dev:ios
+npm run preapre:ios
 ```
 
 ### Run the app
