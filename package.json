@@ -1,20 +1,22 @@
 {
   "name": "cordova-vite",
   "scripts": {
-    "vite:dev": "vite dev",
-    "vite:build": "vite build",
+    "vite:dev:android": "vite --mode android",
+    "vite:dev:ios": "vite --mode ios",
+    "vite:build:android": "cross-env NODE_ENV=production vite build --mode android",
+    "vite:build:ios": "cross-env NODE_ENV=production vite build --mode ios",
     "cordova:run:android": "cordova run android",
     "cordova:run:ios": "cordova run ios",
     "cordova:build:android": "cordova build android",
     "cordova:build:ios": "cordova build ios",
     "prepare:android": "cordova prepare android",
     "prepare:ios": "cordova prepare ios",
-    "dev:android": "npm-run-all --parallel vite:dev --mode android cordova:run:android",
-    "dev:ios": "npm-run-all --parallel vite:dev --mode ios cordova:run:ios",
-    "build:android": "npm-run-all vite:build cordova:build:android",
-    "build:ios": "npm-run-all vite:build cordova:build:ios",
-    "preview:android": "npm-run-all vite:build cordova:run:android",
-    "preview:ios": "npm-run-all vite:build cordova:run:ios"
+    "dev:android": "npm-run-all --parallel vite:dev:android cordova:run:android",
+    "dev:ios": "npm-run-all --parallel vite:dev:ios cordova:run:ios",
+    "build:android": "npm-run-all vite:build:android cordova:build:android",
+    "build:ios": "npm-run-all vite:build:ios cordova:build:ios",
+    "preview:android": "npm-run-all vite:build:android cordova:run:android",
+    "preview:ios": "npm-run-all vite:build:ios cordova:run:ios"
   },
   "dependencies": {
     "cordova": "^12.0.0",
@@ -26,6 +28,7 @@
     "cordova-ios": "^7.0.1",
     "cordova-plugin-dialogs": "^2.0.2",
     "cordova-plugin-vite": "file:../vite-plugin-cordova",
+    "cross-env": "^7.0.3",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.36",
     "tailwindcss": "^3.4.1",
